@@ -3,12 +3,17 @@
 This script give you the possibility to export the table of progression in BBCODE for forum. 
 
 You can change the sort of the export:
-- By points
+- By point
 - By position
 - By progession in point
 - By progression in position
 
 After installing the script from [OpenUserJs] the form will be add after the filter for the date.
+
+### Languages
+
+At this moment the export can be in French or in English, it depends on which language you use on [Ogniter].
+Feel free to add your language.
 
 ### Preview
 
@@ -17,3 +22,4 @@ After installing the script from [OpenUserJs] the form will be add after the fil
 ![Screen_forum_2](/preview/Screen_export_board_ogame.JPG)
 
 [OpenUserJs]: <https://openuserjs.org/scripts/Choubakawa/Export_BBCODE_Ogniter>
+[Ogniter]: <http://en.ogniter.org/>
