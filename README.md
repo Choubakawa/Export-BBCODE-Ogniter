@@ -12,7 +12,7 @@ After installing the script from [OpenUserJs] the form will be add after the fil
 
 ### Languages
 
-At this moment the export can be in French or in English, it depends on which language you use on [Ogniter].
+At this moment the export can be in French or in English, it depends on which language you use on [Ogniter].  
 Feel free to add your language.
 
 ### Preview
