@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Export BBCODE Ogniter
 // @namespace    https://openuserjs.org/scripts/Choubakawa/Export_BBCODE_Ogniter
-// @version      1.0.2
+// @version      1.0.2.1
 // @description  Generate an export in BBOCDE from the table of progression for forum.
 // @author       Choubakawa (Ogame.fr uni Fornax)
 // @include      http://*.ogniter.org/*/*/statistics/*
@@ -52,11 +52,11 @@ function initForm() {
                     </td>
                     <td id="colEven">
                         <div class="btn-group">
-                            <label id="labelPointASC" class="btn btn-primary persoArrow" for="optionPointASC">
+                            <label id="labelPointASC" class="btn btn-default persoArrow" for="optionPointASC">
                                 <i class="icon-arrow-up"></i>
                                 <input type="radio" id="optionPointASC" name="sortedType" class="radioItem">
                             </label>
-                            <label id="labelPointDESC" class="btn btn-primary persoArrow" for="optionPointDESC">
+                            <label id="labelPointDESC" class="btn btn-default persoArrow" for="optionPointDESC">
                                 <i class="icon-arrow-down"></i>
                                 <input type="radio" id="optionPointDESC" name="sortedType" class="radioItem">
                             </label>
@@ -67,11 +67,11 @@ function initForm() {
                     </td>
                     <td id="colEven">
                         <div class="btn-group">
-                            <label id="labelPositionASC" class="btn btn-primary persoArrow" for="optionPositionASC">
+                            <label id="labelPositionASC" class="btn btn-default persoArrow" for="optionPositionASC">
                                 <i class="icon-arrow-up"></i>
                                 <input type="radio" id="optionPositionASC" name="sortedType" class="radioItem">
                             </label>
-                            <label id="labelPositionDESC" class="btn btn-primary persoArrow" for="optionPositionDESC">
+                            <label id="labelPositionDESC" class="btn btn-default persoArrow" for="optionPositionDESC">
                                 <i class="icon-arrow-down"></i>
                                 <input type="radio" id="optionPositionDESC" name="sortedType" class="radioItem">
                             </label>
@@ -82,11 +82,11 @@ function initForm() {
                     </td>
                     <td id="colEven">
                         <div class="btn-group">
-                            <label id="labelDiffPointASC" class="btn btn-primary persoArrow" for="optionDiffPointASC">
+                            <label id="labelDiffPointASC" class="btn btn-default persoArrow" for="optionDiffPointASC">
                                 <i class="icon-arrow-up"></i>
                                 <input type="radio" id="optionDiffPointASC" name="sortedType" class="radioItem">
                             </label>
-                            <label id="labelDiffPointDESC" class="btn btn-primary persoArrow" for="optionDiffPointDESC">
+                            <label id="labelDiffPointDESC" class="btn btn-default persoArrow" for="optionDiffPointDESC">
                                 <i class="icon-arrow-down"></i>
                                 <input type="radio" id="optionDiffPointDESC" name="sortedType" class="radioItem">
                             </label>
@@ -97,11 +97,11 @@ function initForm() {
                     </td>
                     <td id="colEven">
                         <div class="btn-group">
-                            <label id="labelDiffPositionASC" class="btn btn-primary persoArrow" for="optionDiffPositionASC">
+                            <label id="labelDiffPositionASC" class="btn btn-default persoArrow" for="optionDiffPositionASC">
                                 <i class="icon-arrow-up"></i>
                                 <input type="radio" id="optionDiffPositionASC" name="sortedType" class="radioItem">
                             </label>
-                            <label id="labelDiffPositionDESC" class="btn btn-primary persoArrow" for="optionDiffPositionDESC">
+                            <label id="labelDiffPositionDESC" class="btn btn-default persoArrow" for="optionDiffPositionDESC">
                                 <i class="icon-arrow-down"></i>
                                 <input type="radio" id="optionDiffPositionDESC" name="sortedType" class="radioItem">
                             </label>
@@ -114,13 +114,13 @@ function initForm() {
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="3" id="colEven">
+                    <td colspan="10" id="colEven">
                         <div class="btn-group">
-                            <label id="labelCenterOption" class="btn btn-primary optionCenter" for="centerOption">
+                            <label id="labelCenterOption" class="btn btn-default optionCenter" for="centerOption">
                                 ` + "[center]" + `
                                 <input type="radio" id="centerOption" name="center" class="radioItem" value="center">
                             </label>
-                            <label id="labelAlignCenterOption" class="btn btn-primary optionCenter" for="alignCenterOption">
+                            <label id="labelAlignCenterOption" class="btn btn-default optionCenter" for="alignCenterOption">
                                 ` + "[align=center]" + `
                                 <input type="radio" id="alignCenterOption" name="center" class="radioItem" value="align=center">
                             </label>
@@ -474,78 +474,78 @@ initPlayers();
 sortByDiffPointDESC(players);
 exportBBCODE = generateBBcode(players);
 initForm();
-$("#labelDiffPointDESC").addClass('btn-success');
-$("#labelCenterOption").addClass('btn-success');
+$("#labelDiffPointDESC").addClass('btn-info');
+$("#labelCenterOption").addClass('btn-info');
 
 //==========================
 // LISTENERS ON BUTTONS
 //==========================
 $("#optionPointASC").click(function () {
-    $(".persoArrow").removeClass('btn-success');
-    $("#labelPointASC").addClass('btn-success');
+    $(".persoArrow").removeClass('btn-info');
+    $("#labelPointASC").addClass('btn-info');
     sortByPointASC(players);
     updateBBcode();
 });
 
 $("#optionPointDESC").click(function () {
-    $(".persoArrow").removeClass('btn-success');
-    $("#labelPointDESC").addClass('btn-success');
+    $(".persoArrow").removeClass('btn-info');
+    $("#labelPointDESC").addClass('btn-info');
     sortByPointDESC(players);
     updateBBcode();
 });
 
 $("#optionPositionASC").click(function () {
-    $(".persoArrow").removeClass('btn-success');
-    $("#labelPositionASC").addClass('btn-success');
+    $(".persoArrow").removeClass('btn-info');
+    $("#labelPositionASC").addClass('btn-info');
     sortByPositionASC(players);
     updateBBcode();
 });
 
 $("#optionPositionDESC").click(function () {
-    $(".persoArrow").removeClass('btn-success');
-    $("#labelPositionDESC").addClass('btn-success');
+    $(".persoArrow").removeClass('btn-info');
+    $("#labelPositionDESC").addClass('btn-info');
     sortByPositionDESC(players);
     updateBBcode();
 });
 
 $("#optionDiffPointASC").click(function () {
-    $(".persoArrow").removeClass('btn-success');
-    $("#labelDiffPointASC").addClass('btn-success');
+    $(".persoArrow").removeClass('btn-info');
+    $("#labelDiffPointASC").addClass('btn-info');
     sortByDiffPointASC(players);
     updateBBcode();
 });
 
 $("#optionDiffPointDESC").click(function () {
-    $(".persoArrow").removeClass('btn-success');
-    $("#labelDiffPointDESC").addClass('btn-success');
+    $(".persoArrow").removeClass('btn-info');
+    $("#labelDiffPointDESC").addClass('btn-info');
     sortByDiffPointDESC(players);
     updateBBcode();
 });
 
 $("#optionDiffPositionASC").click(function () {
-    $(".persoArrow").removeClass('btn-success');
-    $("#labelDiffPositionASC").addClass('btn-success');
+    $(".persoArrow").removeClass('btn-info');
+    $("#labelDiffPositionASC").addClass('btn-info');
     sortByDiffPositionASC(players);
     updateBBcode();
 });
 
 $("#optionDiffPositionDESC").click(function () {
-    $(".persoArrow").removeClass('btn-success');
-    $("#labelDiffPositionDESC").addClass('btn-success');
+    $(".persoArrow").removeClass('btn-info');
+    $("#labelDiffPositionDESC").addClass('btn-info');
     sortByDiffPositionDESC(players);
     updateBBcode();
 });
 
 $("#centerOption").click(function () {
-    $(".optionCenter").removeClass('btn-success');
-    $("#labelCenterOption").addClass('btn-success');
+    $(".optionCenter").removeClass('btn-info');
+    $("#labelCenterOption").addClass('btn-info');
     alignCenter = $("#centerOption").val();
     updateBBcode();
 });
 
 $("#alignCenterOption").click(function () {
-    $(".optionCenter").removeClass('btn-success');
-    $("#labelAlignCenterOption").addClass('btn-success');
+    $(".optionCenter").removeClass('btn-info');
+    $("#labelAlignCenterOption").addClass('btn-info');
     alignCenter = $("#alignCenterOption").val();
     updateBBcode();
 });
