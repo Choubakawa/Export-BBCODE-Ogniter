@@ -16,6 +16,7 @@ var dateStart;
 var dateEnd;
 var type;
 var exportBBCODE = "";
+var alignCenter = "center";
 var language = {
     generatedFrom: "",
     withScript: "",
@@ -112,6 +113,20 @@ function initForm() {
                         </div>
                     </td>
                 </tr>
+                <tr>
+                    <td colspan="3" id="colEven">
+                        <div class="btn-group">
+                            <label id="labelCenterOption" class="btn btn-primary optionCenter" for="centerOption">
+                                ` + "[center]" + `
+                                <input type="radio" id="centerOption" name="center" class="radioItem" value="center">
+                            </label>
+                            <label id="labelAlignCenterOption" class="btn btn-primary optionCenter" for="alignCenterOption">
+                                ` + "[align=center]" + `
+                                <input type="radio" id="alignCenterOption" name="center" class="radioItem" value="align=center">
+                            </label>
+                        </div>
+                    </td>
+                </tr>
             </table>
         </div>
         `);
@@ -131,13 +146,13 @@ function initForm() {
  */
 function initPlayers() {
     for (var i = 0; i < table.length; i++) {
-        
+
         let tab = table[i],
             rows = table[i].getElementsByTagName('tr'),
             m,
             bigcells,
             cells;
-        
+
         for (m = 0; m < rows.length; m++) {
             let player = {
                 pseudo: "",
@@ -149,17 +164,17 @@ function initPlayers() {
                 diffPosition: "",
                 pourcentage: 0
             };
-            
+
             bigcells = rows[m].getElementsByTagName('th');
             if (!bigcells.length) {
                 continue;
             }
-            
+
             cells = rows[m].getElementsByTagName('td');
             if (!cells.length) {
                 continue;
             }
-            
+
             let pseudo = bigcells[0].getElementsByTagName('a');
             player.pseudo = pseudo[0].innerHTML;
             let dateStartTemp = cells[0].innerHTML;
@@ -167,7 +182,7 @@ function initPlayers() {
             dateStart = dateStartTemp.substr(dateStartTemp.indexOf("(") + 1).split(")").join("");
             dateEnd = dateEndTemp.substr(dateEndTemp.indexOf("(") + 1).split(")").join("");
             let testIteration = i.toString();
-            
+
             switch (testIteration) {
                 //first table = points
                 case "0":
@@ -191,7 +206,7 @@ function initPlayers() {
                     }
                     players.push(player);
                     break;
-                //second table = position
+                    //second table = position
                 case "1":
                     let positionBefore = cells[0].innerHTML;
                     let positionAfter = cells[1].innerHTML;
@@ -347,7 +362,7 @@ function generateBBcode(players) {
     players.forEach(function (e, index) {
         let colorPosition = e.diffPosition.startsWith("+") ? "[color=#00cc00]" : "[color=#FF0000]";
         let colorPoint = e.diffPoint.startsWith("+") ? "[color=#00cc00]" : "[color=#FF0000]";
-        index++;   
+        index++;
         BBCODE += "[tr]\n" +
             "[td]" + index + "[/td]" +
             "[td][color=#17B4FF]" + e.pseudo + "[/color][/td]" +
@@ -358,9 +373,9 @@ function generateBBcode(players) {
             "[td][size=10](" + e.pourcentage + ")[/size][/td]" +
             "[/tr]\n";
     });
-    
+
     BBCODE += "[/table]\n" + generateBBcodeSignature();
-    
+
     return BBCODE;
 }
 
@@ -375,11 +390,13 @@ function generateBBcodeSignature() {
     let scriptName = "Export BBCODE Ogniter";
     let devProfilURL = "https://twitter.com/Choubakawa";
     let devName = "Choubakawa";
+    let endCenter = alignCenter.startsWith("c") ? alignCenter : "align";
 
     let signature = "[size=10][table]\n" +
-        "[tr][td][center]" + language.generatedFrom + " " + "[url=" + ogniterURL + "]" + ogniterName + "[/url][/center][/td][/tr]\n" +
-        "[tr][td][center]" + language.withScript + " " + "[url=" + scriptURL + "]" + scriptName + "[/url]" + " " + language.createdBy + " " + "[url=" + devProfilURL + "]" + devName + "[/url][/center][/td][/tr]\n" +
+        "[tr][td][" + alignCenter + "]" + language.generatedFrom + " " + "[url=" + ogniterURL + "]" + ogniterName + "[/url][/" + endCenter + "][/td][/tr]\n" +
+        "[tr][td][" + alignCenter + "]" + language.withScript + " " + "[url=" + scriptURL + "]" + scriptName + "[/url]" + " " + language.createdBy + " " + "[url=" + devProfilURL + "]" + devName + "[/url][/" + endCenter + "][/td][/tr]\n" +
         "[/table][/size]";
+    console.log(signature);
 
     return signature;
 }
@@ -458,6 +475,7 @@ sortByDiffPointDESC(players);
 exportBBCODE = generateBBcode(players);
 initForm();
 $("#labelDiffPointDESC").addClass('btn-success');
+$("#labelCenterOption").addClass('btn-success');
 
 //==========================
 // LISTENERS ON BUTTONS
@@ -515,6 +533,20 @@ $("#optionDiffPositionDESC").click(function () {
     $(".persoArrow").removeClass('btn-success');
     $("#labelDiffPositionDESC").addClass('btn-success');
     sortByDiffPositionDESC(players);
+    updateBBcode();
+});
+
+$("#centerOption").click(function () {
+    $(".optionCenter").removeClass('btn-success');
+    $("#labelCenterOption").addClass('btn-success');
+    alignCenter = $("#centerOption").val();
+    updateBBcode();
+});
+
+$("#alignCenterOption").click(function () {
+    $(".optionCenter").removeClass('btn-success');
+    $("#labelAlignCenterOption").addClass('btn-success');
+    alignCenter = $("#alignCenterOption").val();
     updateBBcode();
 });
 
