@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Export BBCODE Ogniter
 // @namespace    https://openuserjs.org/scripts/Choubakawa/Export_BBCODE_Ogniter
-// @version      1.0.2.1
+// @version      1.0.2.2
 // @description  Generate an export in BBOCDE from the table of progression for forum.
 // @author       Choubakawa (Ogame.fr uni Fornax)
 // @include      http://*.ogniter.org/*/*/statistics/*
@@ -216,6 +216,8 @@ function initPlayers() {
                     player.diffPosition = diffPosition[0].innerHTML.split(",").join(".");
                     addPlayer(player);
                     break;
+                default:
+                    break;
             }
         }
     }
@@ -396,7 +398,6 @@ function generateBBcodeSignature() {
         "[tr][td][" + alignCenter + "]" + language.generatedFrom + " " + "[url=" + ogniterURL + "]" + ogniterName + "[/url][/" + endCenter + "][/td][/tr]\n" +
         "[tr][td][" + alignCenter + "]" + language.withScript + " " + "[url=" + scriptURL + "]" + scriptName + "[/url]" + " " + language.createdBy + " " + "[url=" + devProfilURL + "]" + devName + "[/url][/" + endCenter + "][/td][/tr]\n" +
         "[/table][/size]";
-    console.log(signature);
 
     return signature;
 }
