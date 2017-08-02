@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Export BBCODE Ogniter
 // @namespace    https://openuserjs.org/scripts/Choubakawa/Export_BBCODE_Ogniter
-// @version      1.0.2.2
+// @version      1.1
 // @description  Generate an export in BBOCDE from the table of progression for forum.
 // @author       Choubakawa (Ogame.fr uni Fornax)
 // @include      http://*.ogniter.org/*/*/statistics/*
@@ -403,6 +403,17 @@ function generateBBcodeSignature() {
 }
 
 /*
+ * COPY AND ADD MESSAGE COPIED
+ */
+function copy() {
+    copyToClipboard();
+    $("<td id='tempSpan'>" + language.copy + "</td>").insertAfter($("#buttonCopy"));
+    setTimeout(function () {
+        $("#tempSpan").remove();
+    }, 3000);
+}
+
+/*
  * SWITCH LANGUAGE
  */
 function switchLanguage() {
@@ -552,9 +563,10 @@ $("#alignCenterOption").click(function () {
 });
 
 $("#buttonCopy").click(function () {
-    copyToClipboard();
-    $("<td id='tempSpan'>" + language.copy + "</td>").insertAfter($("#buttonCopy"));
-    setTimeout(function () {
-        $("#tempSpan").remove();
-    }, 3000);
+    copy();
+});
+
+$("#previewBBCODE").click(function () {
+    copy();
+    $("#previewBBCODE").select();
 });
