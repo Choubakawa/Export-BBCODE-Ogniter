@@ -1,4 +1,4 @@
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Choubakawa/Export-BBCODE-Ogniter/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Choubakawa/Export-BBCODE-Ogniter/?branch=master)[![Build Status](https://scrutinizer-ci.com/g/Choubakawa/Export-BBCODE-Ogniter/badges/build.png?b=master)](https://scrutinizer-ci.com/g/Choubakawa/Export-BBCODE-Ogniter/build-status/master)  
+![Build Status](https://scrutinizer-ci.com/g/Choubakawa/Export-BBCODE-Ogniter/badges/build.png?b=master)
 # Export BBCODE Ogniter 
 
 This script give you the possibility to export the table of progression in BBCODE for forum. 
