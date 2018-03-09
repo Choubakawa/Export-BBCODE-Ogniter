@@ -23,4 +23,4 @@ Feel free to add your language.
 ![Screen_forum_2](/preview/Screen_export_board_ogame.JPG)
 
 [OpenUserJs]: <https://openuserjs.org/scripts/Choubakawa/Export_BBCODE_Ogniter>
-[Ogniter]: <http://en.ogniter.org/>
+[Ogniter]: <https://en.ogniter.eu/>

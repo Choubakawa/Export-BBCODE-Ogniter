@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         Export BBCODE Ogniter
 // @namespace    https://openuserjs.org/scripts/Choubakawa/Export_BBCODE_Ogniter
-// @version      1.1
+// @version      1.2
 // @description  Generate an export in BBOCDE from the table of progression for forum.
 // @author       Choubakawa (Ogame.fr uni Fornax)
-// @include      http://*.ogniter.org/*/*/statistics/*
+// @include      https://*.ogniter.*/*/*/statistics/*
+// @license MIT
 // @supportURL   https://github.com/Choubakawa/Export-BBCODE-Ogniter
 // @updateURL    https://openuserjs.org/meta/Choubakawa/Export_BBCODE_Ogniter.meta.js
 // @downloadURL  https://openuserjs.org/install/Choubakawa/Export_BBCODE_Ogniter.user.js
